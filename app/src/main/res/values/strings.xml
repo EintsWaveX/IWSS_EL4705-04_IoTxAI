@@ -1,0 +1,76 @@
+<resources>
+    <string name="app_name">Waste Sorter</string>
+    <string name="result">Label: --- (--.--%)</string>
+    <string name="metrics">Model: --- (--x--) | Inference: -- ms | FPS: --/--</string>
+    <string name="plastic_progress">Plastic --.--%</string>
+    <string name="paper_progress">Paper --.--%</string>
+    <string name="metal_progress">Metal --.--%</string>
+    <string name="esp32_ip_hint">x.x.x.x</string>
+    <string name="single_frame">Single Frame</string>
+    <string name="temporal_vote">Temporal Vote</string>
+    <string name="confidence_threshold">Confidence Threshold (30–60%)</string>
+    <string name="frames_per_capture">Frames per Capture (1–10)</string>
+    <string name="capture_interval">Time Interval per Capture (0.1–5s)</string>
+    <string name="ct_label">Confidence Threshold</string>
+    <string name="fpc_label">Frames per Capture</string>
+    <string name="ci_label">Time Interval per Capture</string>
+    <string name="ct_value">45%</string>
+    <string name="fpc_value">1</string>
+    <string name="ci_value">1.0s</string>
+    <string name="start">START</string>
+    <string name="resume">RESUME</string>
+    <string name="pause">PAUSE</string>
+    <string name="stop">STOP</string>
+    <string name="restart">RESTART</string>
+    <string name="debug_log">DEBUG LOG</string>
+    <string name="settings">Settings</string>
+    <string name="clear_log">CLEAR LOG</string>
+    <string name="close">Close</string>
+    <string name="stopped">[STOPPED]</string>
+    <string name="running">[RUNNING]</string>
+    <string name="paused">[PAUSED]</string>
+    <string name="esp32_cam_connected">ESP32-CAM Connected</string>
+    <string name="esp32_cam_disconnected">ESP32-CAM Disconnected</string>
+    <string name="view_graph">View Graph &amp; More Details</string>
+    <string name="raw_image">Raw Image</string>
+    <string name="esp32_cam_view">ESP32-CAM Live Feed</string>
+    <string name="predicted_raw_image">Processed Frame</string>
+    <string name="dont_debug_on_inference">Don\'t Debug on Inference</string>
+    <string name="training_result">Training Result</string>
+    <string name="confusion_matrix">Confusion Matrix</string>
+    <string name="model_summary">Model Summary</string>
+    <string name="back_from_view_graph">Back</string>
+    <string name="back_from_model_summary">Back</string>
+
+    <string name="model_summary_txt_placeholder">[NOTE] Please select a View Option below:</string>
+    <string name="training_result_not_available">[ERROR] Training result not available!</string>
+    <string name="confusion_matrix_not_available">[ERROR] Confusion matrix not available!</string>
+    <string name="model_summary_not_available">[ERROR] Model summary not available!</string>
+
+    <string name="no_model_selected">[WARN] No models selected, thus no model information available.</string>
+    <string name="error_loading_summary_file">"[ERROR] Failed to load the model summary, with exception: "</string>
+    <string name="summary_not_available">[WARN] No summary available for this model.</string>
+
+    <string name="http_not_allowed">[ERROR] HTTP not allowed. Add to AndroidManifest.xml:\nandroid:usesCleartextTraffic=\"true\"</string>
+    <string name="clear_firebase_inference_data">Clear Firebase Inference Data</string>
+
+
+    <string-array name="mode_array">
+        <item>Simulation</item>
+        <item>ESP32-CAM</item>
+    </string-array>
+
+    <string-array name="model_array">
+        <item>model1.tflite</item>
+        <item>model2.tflite</item>
+        <item>model3.tflite</item>
+        <item>model4.tflite</item>
+    </string-array>
+
+    <string-array name="dataset_array">
+        <item>All Dataset</item>
+        <item>Plastic</item>
+        <item>Paper</item>
+        <item>Metal</item>
+    </string-array>
+</resources>

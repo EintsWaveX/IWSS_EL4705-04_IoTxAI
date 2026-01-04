@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#1a1a1a"
+    android:padding="16dp"
+    android:weightSum="5">
+
+    <!-- Display Area (75% of screen) -->
+    <FrameLayout
+        android:id="@+id/display_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:background="#2a2a2a"
+        android:padding="8dp">
+
+        <!-- Image View (for Training Result and Confusion Matrix) -->
+        <ImageView
+            android:id="@+id/img_display"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:visibility="gone"
+            android:background="#333333"
+            app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+        <!-- Scrollable Text View (for Model Summary) -->
+        <ScrollView
+            android:id="@+id/scroll_text_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:fillViewport="true"
+            android:scrollbars="vertical">
+
+            <TextView
+                android:id="@+id/txt_model_summary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:textColor="#FFFFFF"
+                android:textSize="11sp"
+                android:lineSpacingExtra="4dp"
+                android:typeface="monospace" />
+
+        </ScrollView>
+
+        <!-- Placeholder text when nothing is selected -->
+        <TextView
+            android:id="@+id/txt_placeholder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/model_summary_txt_placeholder"
+            android:textColor="#AAAAAA"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </FrameLayout>
+
+    <!-- Button Container (25% of screen) - Using GridLayout for better control -->
+    <androidx.gridlayout.widget.GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp"
+        app:columnCount="4"
+        app:rowCount="1"
+        app:alignmentMode="alignBounds"
+        app:useDefaultMargins="true">
+
+        <Button
+            android:id="@+id/btn_training_result"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:backgroundTint="#4CAF50"
+            android:text="@string/training_result"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_confusion_matrix"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:backgroundTint="#2196F3"
+            android:text="@string/confusion_matrix"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_model_summary"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:backgroundTint="#FF9800"
+            android:text="@string/model_summary"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_back_summary"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:backgroundTint="#F44336"
+            android:text="@string/back_from_model_summary"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+    </androidx.gridlayout.widget.GridLayout>
+
+</LinearLayout>

@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "722180644770",
+    "firebase_url": "https://iwss-iotxaixes-default-rtdb.firebaseio.com",
+    "project_id": "iwss-iotxaixes",
+    "storage_bucket": "iwss-iotxaixes.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:722180644770:android:d288fe671dd8310b275cfb",
+        "android_client_info": {
+          "package_name": "com.eintswavex.wastesorter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDO4vMgkRW4Xl4SlIfO1bqnJfwm9j-h74c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

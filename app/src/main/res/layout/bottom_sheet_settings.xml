@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottom_sheet_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#181818"
+    android:padding="16dp"
+    android:theme="@style/Theme.MaterialComponents"
+    app:behavior_hideable="true"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <ImageButton
+        android:id="@+id/btn_close_sheet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/close"
+        android:padding="8dp"
+        android:src="@android:drawable/ic_menu_close_clear_cancel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- ================= Settings ================= -->
+    <LinearLayout
+        android:id="@+id/top_controls_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/btn_close_sheet">
+
+        <Spinner
+            android:id="@+id/mode_spinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:minHeight="48dp"
+            android:backgroundTint="@android:color/white"/>
+
+        <Spinner
+            android:id="@+id/dataset_spinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:minHeight="48dp"
+            android:backgroundTint="@android:color/white"/>
+
+        <EditText
+            android:id="@+id/esp32_ip"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:autofillHints="ipAddress"
+            android:hint="@string/esp32_ip_hint"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/darker_gray" />
+
+        <Spinner
+            android:id="@+id/model_spinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:minHeight="48dp"
+            android:backgroundTint="@android:color/white"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_controls_container">
+
+        <!-- Left Panel: Slider Controls -->
+        <LinearLayout
+            android:id="@+id/controls_container"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:orientation="vertical"
+            android:padding="6dp">
+
+            <!-- Inference Mode -->
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radio_single"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:text="@string/single_frame"
+                    android:textColor="@android:color/white" />
+
+                <RadioButton
+                    android:id="@+id/radio_temporal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/temporal_vote"
+                    android:textColor="@android:color/white" />
+            </RadioGroup>
+
+            <!-- Confidence -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/confidence_threshold"
+                android:textColor="@android:color/white" />
+
+            <SeekBar
+                android:id="@+id/confidence_slider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="30" />
+
+            <!-- Frames -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/frames_per_capture"
+                android:textColor="@android:color/white" />
+
+            <SeekBar
+                android:id="@+id/frames_slider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="9" />
+
+            <!-- Interval -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/capture_interval"
+                android:textColor="@android:color/white" />
+
+            <SeekBar
+                android:id="@+id/interval_slider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="49" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="@string/ct_label"
+                        android:textSize="10sp"
+                        android:textColor="@android:color/white"/>
+
+                    <TextView
+                        android:id="@+id/confidence_value_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:text="@string/ct_value"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="@string/fpc_label"
+                        android:textSize="10sp"
+                        android:textColor="@android:color/white"/>
+
+                    <TextView
+                        android:id="@+id/frames_value_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:text="@string/fpc_value"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <RadioGroup
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="@string/ci_label"
+                        android:textSize="10sp"
+                        android:textColor="@android:color/white"/>
+
+                    <TextView
+                        android:id="@+id/interval_value_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:text="@string/ci_value"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <!-- Spacer to push buttons to bottom -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <!-- Button Row: View Graph + Clear Firebase Data -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+
+                <!-- View Graph Button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_view_graph"
+                    style="?attr/materialButtonOutlinedStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="4dp"
+                    android:backgroundTint="#6644FF"
+                    android:text="@string/view_graph"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF" />
+
+                <!-- Clear Firebase Data Button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_clear_firebase"
+                    style="?attr/materialButtonOutlinedStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="#FFDD8822"
+                    android:text="@string/clear_firebase_inference_data"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Right Panel: Debug Log -->
+        <LinearLayout
+            android:id="@+id/debug_log_container"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:orientation="vertical"
+            android:padding="6dp">
+
+            <!-- Debug Log Header -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/debug_log"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_debug"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/dont_debug_on_inference"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+
+            <!-- Debug Log Text Area with Nested Scroll for both X and Y -->
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/debug_log_scroll_y"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginBottom="8dp"
+                android:fillViewport="true"
+                android:scrollbars="vertical">
+
+                <HorizontalScrollView
+                    android:id="@+id/debug_log_scroll_x"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="horizontal"
+                    android:fillViewport="true">
+
+                    <EditText
+                        android:id="@+id/debug_log"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:textColor="@android:color/white"
+                        android:textSize="12sp"
+                        android:scrollHorizontally="true"
+                        android:focusable="true"
+                        android:focusableInTouchMode="false"
+                        android:textIsSelectable="true"
+                        android:cursorVisible="false"
+                        android:longClickable="true"
+                        android:inputType="textMultiLine"
+                        android:autofillHints=""/>
+
+                </HorizontalScrollView>
+            </androidx.core.widget.NestedScrollView>
+
+            <!-- Action Button (only Clear Log now) -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_clear_log"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/clear_log" />
+
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
