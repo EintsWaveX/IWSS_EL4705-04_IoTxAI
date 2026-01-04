@@ -1,6 +1,6 @@
 # APP IS NOT 100% FINISHED, BUT THE REQUIRED TASKS HAVE BEEN FULFILLED.
 
-## All the main features have been finished, only need some miscellaneous details such as Toast notifications, better Debug Log, better UI handle, better graph X-axis scrolling.
+## All the main features have been finished, only need some miscellaneous details such as Toast notifications, better Debug Log, better UI handling, and better graph X-axis scrolling.
 
 ---
 
@@ -8,7 +8,9 @@ Group project made for the Final Project Examination at the end of the 5th semes
 
 ---
 
-The initial commit here is intended for IoT and AI purposes only; for the Embedded Systems implementation, please refer to [here.]()
+The purpose of this commit is intended for IoT and AI purposes only. For Embedded Systems implementation, please refer to [here].()
+
+To see how the models are trained, please refer to [here.](https://github.com/EintsWaveX/IWSS_EL4705-04_TrainingWorkspace/blob/main/IWSS_EL4705_04_TrainingWorkspace.ipynb)
 
 To see the source code implementation for each of made into this program, please refer to these several links provided (can also be found in this repo inside `app/src/`):
 
