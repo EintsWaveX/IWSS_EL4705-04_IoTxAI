@@ -22,3 +22,10 @@ To see the source code implementation for each of made into this program, please
 4. System: [Graph Activity](https://github.com/EintsWaveX/IWSS_EL4705-04/tree/master/app/src/main/java/com/eintswavex/wastesorter/GraphActivity.java)
 5. System: [Probability History](https://github.com/EintsWaveX/IWSS_EL4705-04/tree/master/app/src/main/java/com/eintswavex/wastesorter/ProbabilityHistory.java)
 6. AI: [Model Summary Activity](https://github.com/EintsWaveX/IWSS_EL4705-04/tree/master/app/src/main/java/com/eintswavex/wastesorter/ModelSummaryActivity.java)
+
+---
+
+Contributors:
+- IMMANUEL EBEN HAEZER JOSEPH ALETHEIA [101022300172]
+- NAUFAL RAFI RAHMADIAN [101022300334]
+- ZUELA TINTO VALDY ABDILAH [101022330098]
